@@ -62,80 +62,81 @@
   </script>
   
   <style scoped>
-  /* Modal styles */
-  .modal {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-  }
-  
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 70%; /* Adjust the width as needed */
-    max-width: 400px; /* Set a maximum width to avoid it becoming too wide */
-    text-align: center; /* Center align text */
-  }
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-  }
-  
-  /* Error message style */
-  .error-message {
-    color: red;
-    margin-top: 10px; /* Add margin to separate from other content */
-  }
-  
-  /* Form group style */
-  .form-group {
-    margin-bottom: 20px; /* Add margin between form elements */
-    text-align: left; /* Align labels to the left */
-  }
-  
-  label {
-    display: block; /* Display labels as block elements */
-    margin-bottom: 5px; /* Add margin below labels */
-    text-align: left; /* Align labels to the left */
-  }
-  
-  /* Input field styles */
-  input[type="text"],
-  textarea,
-  input[type="number"] {
-    width: 100%; /* Make inputs fill the container */
-    padding: 8px;
-    box-sizing: border-box; /* Include padding in width calculation */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px; /* Adjust font size as needed */
-    text-align: left; /* Align text to the left */
-  }
-  
-  /* Transition effect */
-  .product-transition-enter-active, .product-transition-leave-active {
-    transition: opacity 0.5s;
-  }
-  
-  .product-transition-enter, .product-transition-leave-to {
-    opacity: 0;
-  }
-  </style>
+/* Modal styles */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea,
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+</style>
   

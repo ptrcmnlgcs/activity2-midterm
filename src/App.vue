@@ -11,5 +11,9 @@ export default {
 </script>
 
 <style>
+#app {
+  font-family: Arial;
+  margin: 20px;
+}
 /* Add your global styles here */
 </style>
