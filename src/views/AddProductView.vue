@@ -83,5 +83,19 @@
     color: green;
     margin-top: 10px; /* Add margin to separate from other content */
   }
+  button {
+  text-align: center;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  display: block;
+  margin: auto;
+  margin-bottom: 10px; /* Add space at the bottom */
+}
+
   </style>
   

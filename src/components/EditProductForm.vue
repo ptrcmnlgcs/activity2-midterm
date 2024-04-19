@@ -51,7 +51,9 @@
   <style scoped>
   /* Modal styles */
   .modal {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -63,20 +65,22 @@
   
   .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 0 auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 70%; /* Adjust the width as needed */
     max-width: 400px; /* Set a maximum width to avoid it becoming too wide */
     text-align: center; /* Center align text */
+    border-radius: 8px;
   }
   
   .close {
     color: #aaa;
-    float: right;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
   }
   
   .close:hover,
@@ -88,17 +92,20 @@
   /* Form group style */
   .form-group {
     margin-bottom: 20px; /* Add margin between form elements */
+    text-align: left; /* Align labels to the left */
   }
   
   label {
     display: block; /* Display labels as block elements */
     margin-bottom: 5px; /* Add margin below labels */
     text-align: left; /* Align labels to the left */
+    font-weight: bold; /* Make labels bold */
   }
   
   /* Input field styles */
   input[type="text"],
-  textarea {
+  textarea,
+  input[type="number"] {
     width: 100%; /* Make inputs fill the container */
     padding: 8px;
     box-sizing: border-box; /* Include padding in width calculation */
@@ -108,28 +115,26 @@
     text-align: left; /* Align text to the left */
   }
   
-  /* Bounce animation */
-  .bounce-enter-active, .bounce-leave-active {
-    animation: bounce-in 0.5s;
+  button[type="submit"] {
+    width: 100%; /* Make button fill the container */
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
   }
   
-  .bounce-enter, .bounce-leave-to /* .bounce-leave-active in <2.1.8 */ {
-    opacity: 0;
-    transform: translateY(-20px);
+  button[type="submit"]:hover {
+    background-color: #45a049;
   }
   
-  @keyframes bounce-in {
-    0% {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    50% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-10px);
-    }
+  /* Error message style */
+  .error-message {
+    color: red;
+    margin-top: 10px; /* Add margin to separate from other content */
   }
-  </style>
+</style>
+
   
