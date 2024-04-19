@@ -1,14 +1,31 @@
-import { createStore } from 'vuex'
+import { createRouter, createWebHistory } from 'vue-router';
 
-export default createStore({
-  state: {
+const routes = [
+  {
+    path: '/',
+    redirect: '/products'
   },
-  getters: {
+  {
+    path: '/products',
+    name: 'Products',
+    component: () => import(/* webpackChunkName: "ProductListView" */ '../views/ProductListView.vue')
   },
-  mutations: {
+  {
+    path: '/add-product',
+    name: 'AddProduct',
+    component: () => import(/* webpackChunkName: "AddProductView" */ '../views/AddProductView.vue')
   },
-  actions: {
-  },
-  modules: {
+  {
+    path: '/edit-product/:id',
+    name: 'EditProduct',
+    component: () => import(/* webpackChunkName: "EditProductView" */ '../views/EditProductView.vue'),
+    props: true
   }
-})
+];
+
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
+  routes
+});
+
+export default router;
