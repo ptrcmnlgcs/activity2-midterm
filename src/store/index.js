@@ -1,31 +1,55 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createStore } from 'vuex';
 
-const routes = [
-  {
-    path: '/',
-    redirect: '/products'
+const store = createStore({
+  state: {
+    products: []
   },
-  {
-    path: '/products',
-    name: 'Products',
-    component: () => import(/* webpackChunkName: "ProductListView" */ '../views/ProductListView.vue')
+  mutations: {
+    ADD_PRODUCT(state, newProduct) {
+      state.products.push(newProduct);
+    },
+    EDIT_PRODUCT(state, updatedProduct) {
+      const index = state.products.findIndex(p => p.id === updatedProduct.id);
+      if (index !== -1) {
+        state.products.splice(index, 1, updatedProduct);
+      }
+    },
+    DELETE_PRODUCT(state, productId) {
+      state.products = state.products.filter(product => product.id !== productId);
+    }
   },
-  {
-    path: '/add-product',
-    name: 'AddProduct',
-    component: () => import(/* webpackChunkName: "AddProductView" */ '../views/AddProductView.vue')
+  actions: {
+    addProduct({ commit }, newProduct) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          commit('ADD_PRODUCT', newProduct);
+          resolve();
+        }, 1000);
+      });
+    },
+    editProduct({ commit, state }, updatedProduct) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          commit('EDIT_PRODUCT', updatedProduct);
+          resolve();
+        }, 1000);
+      });
+    },
+    deleteProduct({ commit }, productId) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          commit('DELETE_PRODUCT', productId);
+          resolve();
+        }, 1000);
+      });
+    }
   },
-  {
-    path: '/edit-product/:id',
-    name: 'EditProduct',
-    component: () => import(/* webpackChunkName: "EditProductView" */ '../views/EditProductView.vue'),
-    props: true
+  getters: {
+    getProductById: (state) => (id) => {
+      return state.products.find(product => product.id === id);
+    }
+    // Other getters if needed
   }
-];
-
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
 });
 
-export default router;
+export default store;
