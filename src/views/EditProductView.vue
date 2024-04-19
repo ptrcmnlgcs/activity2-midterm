@@ -1,29 +1,27 @@
 <template>
   <div class="modal">
-    <transition name="bounce">
-      <div class="modal-content">
-        <span class="close" @click="closeModal">&times;</span>
-        <h2>Edit Product</h2>
-        <form @submit.prevent="updateProduct" class="edit-product-form">
-          <!-- Name field -->
-          <div class="form-group">
-            <label for="edit-name">Name:</label>
-            <input type="text" id="edit-name" v-model="editedProduct.name" required>
-          </div>
-          <!-- Description field -->
-          <div class="form-group">
-            <label for="edit-description">Description:</label>
-            <textarea id="edit-description" v-model="editedProduct.description" required></textarea>
-          </div>
-          <!-- Price field -->
-          <div class="form-group">
-            <label for="edit-price">Price:</label>
-            <input type="text" id="edit-price" v-model="editedProduct.price" required>
-          </div>
-          <button type="submit">Update Product</button>
-        </form>
-      </div>
-    </transition>
+    <div class="modal-content">
+      <span class="close" @click="closeModal">&times;</span>
+      <h2>Edit Product</h2>
+      <form @submit.prevent="updateProduct" class="edit-product-form">
+        <!-- Name field -->
+        <div class="form-group">
+          <label for="edit-name">Name:</label>
+          <input type="text" id="edit-name" v-model="editedProduct.name" required>
+        </div>
+        <!-- Description field -->
+        <div class="form-group">
+          <label for="edit-description">Description:</label>
+          <textarea id="edit-description" v-model="editedProduct.description" required></textarea>
+        </div>
+        <!-- Price field -->
+        <div class="form-group">
+          <label for="edit-price">Price:</label>
+          <input type="text" id="edit-price" v-model="editedProduct.price" required>
+        </div>
+        <button type="submit">Update Product</button>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -69,6 +67,7 @@ export default {
   width: 70%; /* Adjust the width as needed */
   max-width: 400px; /* Set a maximum width to avoid it becoming too wide */
   text-align: center; /* Center align text */
+  animation: bounce-in 0.5s; /* Apply bounce animation */
 }
 
 .close {
@@ -109,10 +108,6 @@ textarea {
 }
 
 /* Bounce animation */
-.bounce-enter-active {
-  animation: bounce-in 0.5s;
-}
-
 @keyframes bounce-in {
   0% {
     transform: translateY(-20px);
