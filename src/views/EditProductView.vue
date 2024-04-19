@@ -1,9 +1,14 @@
 <template>
+  <!-- Modal container -->
   <div class="modal">
+    <!-- Transition for modal content -->
     <transition name="bounce">
       <div class="modal-content">
+        <!-- Close button -->
         <span class="close" @click="closeModal">&times;</span>
+        <!-- Modal title -->
         <h2>Edit Product</h2>
+        <!-- Product edit form -->
         <form @submit.prevent="updateProduct" class="edit-product-form">
           <!-- Name field -->
           <div class="form-group">
@@ -20,6 +25,7 @@
             <label for="edit-price">Price:</label>
             <input type="text" id="edit-price" v-model="editedProduct.price" required>
           </div>
+          <!-- Submit button -->
           <button type="submit">Update Product</button>
         </form>
       </div>
@@ -32,17 +38,22 @@ export default {
   props: ['product'],
   data() {
     return {
+      // Clone the product prop to editedProduct for editing
       editedProduct: { ...this.product }
     };
   },
   methods: {
+    // Method to update the product
     updateProduct() {
       // Implement update functionality
       this.$emit('update', this.editedProduct);
+      // Close the modal after updating
       this.closeModal();
     },
+    // Method to close the modal
     closeModal() {
-      this.$emit('close-modal'); // Emit event to close the modal
+      // Emit event to close the modal
+      this.$emit('close-modal');
     }
   }
 };
@@ -61,6 +72,7 @@ export default {
   z-index: 1;
 }
 
+/* Modal content styles */
 .modal-content {
   background-color: #fefefe;
   margin: 15% auto;
@@ -71,6 +83,7 @@ export default {
   text-align: center; /* Center align text */
 }
 
+/* Close button styles */
 .close {
   color: #aaa;
   float: right;
@@ -85,11 +98,12 @@ export default {
   text-decoration: none;
 }
 
-/* Form group style */
+/* Form group styles */
 .form-group {
   margin-bottom: 20px; /* Add margin between form elements */
 }
 
+/* Label styles */
 label {
   display: block; /* Display labels as block elements */
   margin-bottom: 5px; /* Add margin below labels */
